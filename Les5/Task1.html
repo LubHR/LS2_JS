@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task1</title>
+</head>
+<body>
+
+<script>
+
+    // - створити функцію яка обчислює та повертає площу прямокутника зі сторонами а і б
+    const plocha = (a, b) => console.log(a * b)
+    plocha(4, 5)
+    // - створити функцію яка обчислює та повертає площу кола з радіусом r
+    const plocha1 = (r) => console.log(Math.PI * Math.pow(r, 2))
+    plocha1(3)
+    // - створити функцію яка обчислює та повертає площу циліндру висотою h, та радіутом r
+    const plocha2 = (R, H) => console.log(2 * Math.PI * R * H)
+    plocha2(4, 5)
+    // - створити функцію яка приймає масив та виводить кожен його елемент
+    let arr1 = [1, '22', 'Hello', -2.3]
+    const mas = (arr) => {
+        for (let i of arr) {
+            console.log(i)
+        }
+    }
+    mas(arr1)
+    // - створити функцію яка створює параграф з текстом. Текст задати через аргумент
+    const txt = (text) => document.write(`<p>${text}</p>`)
+    txt('Hello')
+    // - створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий
+    const UL = (text) => document.write(`<ul><li>${text}</li><li>${text}</li><li>${text}</li></ul>>`)
+    UL('Hi Vasik')
+    // - створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий.
+    // Кількість li визначається другим аргументом, який є числовим (тут використовувати цикл)
+    const UL2 = (numberli, text) => {
+        document.write(`<ul>`)
+        for (let i = 0; i < numberli; i++) {
+            document.write(`<li>${text}</li>`)
+        }
+        document.write(`</ul>`)
+    }
+    UL2(4, 'Formidable')
+    // - створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список
+    let arr2 = ['Okten', false, 22.5, '8']
+    const elements = (array) => {
+        document.write(`<ul>`)
+        for (const i of array) {
+            document.write(`<li>${i}</li>`)
+        }
+        document.write(`</ul>`)
+    }
+    elements(arr2)
+    // - створити функцію яка приймає масив об'єктів з наступними полями id,name,age , та виводить їх в документ.
+    // Для кожного об'єкту окремий блок.
+    let arr3 = [
+        {name: 'Vasik', age: 34, id: 1},
+        {name: 'Petro', age: 14, id: 2},
+        {name: 'Stus', age: 24, id: 3}
+    ]
+    const users1 = (array) => {
+        for (const i of array) {
+            document.write(`<div>Name: ${i.name}, age: ${i.age}, idusers: ${i.id}</div>`)
+        }
+    }
+    users1(arr3)
+    // - створити функцію яка повертає найменьше число з масиву
+    let arr4 = [6, 34, 87, -1, 9]
+    const minarray = (arr) => {
+        let min = arr[0]
+        for (const i of arr) {
+            if (i < min) {
+                min = i;
+            }
+        }
+        return min
+    }
+    console.log(minarray(arr4))
+    // - створити функцію sum(arr)яка приймає масив чисел, сумує значення елементів масиву та повертає його.
+    // Приклад sum([1,2,10]) //->13
+    let arr5 = [6,-1,5,3]
+    const sum = (arr) =>{
+        let suma = 0
+        for (const i of arr){
+            suma = suma + i
+        }
+        return suma
+    }
+    console.log(sum(arr5))
+    // - створити функцію swap(arr,index1,index2). Функція міняє місцями заняення у відповідних індексах. Приклад  swap([11,22,33,44],0,1) //=> [22,11,33,44]
+    let arr6 = [22,'false',true, 'Hello']
+    const swap = (arr,index1,index2) => {
+        let nubers = arr[index1];
+        arr[index1] = arr[index2];
+        arr[index2] = nubers;
+        return arr
+    }
+    console.log(swap(arr6,2,3))
+    // - Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
+    // Приклад exchange(10000,[{currency:'USD',value:40},{currency:'EUR',value:42}],'USD') // => 250
+    let arrmoney = [
+        {currency:'USD',value:40},
+        {currency:'EUR',value:42}
+    ]
+    const exchange = (sumUAH,currencyValues,exchangeCurrency) =>{
+        for (const i of currencyValues){
+            let suma = sumUAH / i.value
+            console.log(`${sumUAH} ${exchangeCurrency} в ${i.currency} = ${suma}`)
+        }
+    }
+    exchange(2000,arrmoney,'UA')
+</script>
+</body>
+</html>
