@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    // - є масив [2,17,13,6,22,31,45,66,100,-18] :
+    let array = [2, 17, 13, 6, 22, 31, 45, 66, 100, -18]
+    // 1. перебрати його циклом while
+    let i1 = 0
+    while (i1 < array.length) {
+        console.log(array[i1]);
+        i1++;
+    }
+    // 2. перебрати його циклом for
+    for (let i2 = 0; i2 < array.length; i2++) {
+        console.log(array[i2]);
+    }
+    // 3. перебрати циклом while та вивести  числа тільки з непарним індексом
+    let i3 = 0
+    while (i3 < array.length) {
+        if (i3 % 2 === 1) {
+            console.log(array[i3])
+        }
+        i3++;
+    }
+    // 4. перебрати циклом for та вивести  числа тільки з непарним індексом
+    for (let i4 = 0; i4 < array.length; i4++) {
+        if (i4 % 2 === 1) {
+            console.log(array[i4])
+        }
+    }
+    // 5. перебрати циклом while та вивести  числа тільки парні  значення
+    let i5 = 0
+    while (i5 < array.length) {
+        if (i5 % 2 === 0) {
+            console.log(array[i5])
+        }
+        i5++;
+    }
+    // 6. перебрати циклом for та вивести  числа тільки парні  значення
+    for (let i6 = 0; i6 < array.length; i6++) {
+        if (i6 % 2 === 0) {
+            console.log(array[i6])
+        }
+    }
+    // 7. замінити кожне число кратне 3 на слово "okten"
+    for (let i7 = 0; i7 < array.length; i7++) {
+        if (array[i7] % 3 === 0) {
+            array.splice(i7,i7,"Okten");
+            console.log(array[i7]);
+        }
+
+    }
+    // 8. вивести масив в зворотньому порядку.
+    for (let i8 = array.length; i8 > 0; i8-- ) {
+        console.log(array[i8])
+    }
+    // 9. всі попередні завдання (окрім 8), але в зворотньому циклі (с заду на перед)
+
+
+</script>
+</body>
+</html>
