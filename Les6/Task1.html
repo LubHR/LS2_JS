@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task1</title>
+</head>
+<body>
+
+<script>
+    // - Знайти та вивести довижину настипних стрінгових значень
+    // 'hello world', 'lorem ipsum', 'javascript is cool'
+    let str1 = 'hello world'
+    console.log(str1 + '-' +str1.length)
+    let str2 = 'lorem ipsum'
+    console.log(str2 + '-' +str2.length)
+    let str3 = 'javascript is cool'
+    console.log(str3 + '-' +str3.length)
+    // - Перевести до великого регістру наступні стрінгові значення
+    // 'hello world', 'lorem ipsum', 'javascript is cool'
+    console.log(str1.toUpperCase())
+    console.log(str2.toUpperCase())
+    console.log(str3.toUpperCase())
+    // - Перевести до нижнього регістру наступні стрінгові значення
+    // 'HELLO WORLD', 'LOREM IPSUM', 'JAVASCRIPT IS COOL'
+    let str7 = 'HELLO WORLD'
+    console.log(str7.toLowerCase())
+    let str8 = 'LOREM IPSUM'
+    console.log(str8.toLowerCase())
+    let str9 = 'javascript is cool'
+    console.log(str9.toLowerCase())
+    // - Є "брудна" стрінга let str = ' dirty string   ' . Почистити її від зайвих пробілів.
+    let str = ' dirty string   '
+    console.log(str.replaceAll(' ',''))
+    // - Напишіть функцію stringToarray(str), яка перетворює рядок на масив слів.
+    //     let str = 'Ревуть воли як ясла повні';
+    // let arr = stringToarray(str); ['Ревуть', 'воли', 'як', 'ясла', 'повні']
+    let strArr = 'Ревуть воли як ясла повні';
+    console.log(strArr.split(' '))
+    // - є масив чисел [10,8,-7,55,987,-1011,0,1050,0] . за допомоги map  перетворити всі об'єкти в масиві на стрінгові.
+    let arr1 = [10,8,-7,55,987,-1011,0,1050,0]
+    let newarr = arr1.map(value=>value.toString())
+    console.log(newarr)
+    // - створити функцію sortNums(direction), яка прймає масив чисел, та сортує його від більшого до меньшого, або навпаки в залежності від значення аргументу direction.
+    //     let nums = [11,21,3];
+    // sortNums(nums,'ascending') // [3,11,21]
+    // sortNums(nums,'descending') // [21,11,3]
+    let nums = [11,21,3];
+    let sortNums1 = nums.sort((a,b) => a-b )
+    console.log(sortNums1)
+    let sortNums2 = nums.sort((a,b) => b-a )
+    console.log(sortNums2)
+    // ==========================
+    // - є масив
+    // let coursesAndDurationArray = [
+    //     {title: 'JavaScript Complex', monthDuration: 5},
+    //     {title: 'Java Complex', monthDuration: 6},
+    //     {title: 'Python Complex', monthDuration: 6},
+    //     {title: 'QA Complex', monthDuration: 4},
+    //     {title: 'FullStack', monthDuration: 7},
+    //     {title: 'Frontend', monthDuration: 4}
+    // ];
+    // -- відсортувати його за спаданням за monthDuration
+    // -- відфільтрувати , залишивши тільки курси з тривалістю більше 5 місяців
+    // -- за допомоги map перетворити кожен елемент на наступний тип {id,title,monthDuration}
+    let coursesAndDurationArray = [
+        {title: 'JavaScript Complex', monthDuration: 5},
+        {title: 'Java Complex', monthDuration: 6},
+        {title: 'Python Complex', monthDuration: 6},
+        {title: 'QA Complex', monthDuration: 4},
+        {title: 'FullStack', monthDuration: 7},
+        {title: 'Frontend', monthDuration: 4}
+    ];
+    let sort = coursesAndDurationArray.sort((a,b) =>{
+        return a.monthDuration - b.monthDuration
+    })
+    console.log(sort)
+
+    let filter = coursesAndDurationArray.filter(value => value.monthDuration>5)
+    console.log(filter)
+
+    let map = coursesAndDurationArray.map((value,index) => {
+    return {id: index +1,...value}
+    })
+    console.log(map)
+    // =========================
+    //     описати колоду карт (від 6 до туза без джокерів)
+    // - знайти піковий туз
+    // - всі шістки
+    // - всі червоні карти
+    // - всі буби
+    // - всі трефи від 9 та більше
+    //
+    // {
+    //     cardSuit: '', // 'spade', 'diamond','heart', 'clubs'
+    //         value: '', // '6'-'10', 'ace','jack','queen','king','joker'
+    //     color:'', // 'red','black'
+    // }
+    let cards = [
+        {name: 'spade', card:6, color:'black'},
+        {name: 'spade', card:7, color:'black'},
+        {name: 'spade', card:8, color:'black'},
+        {name: 'spade', card:9, color:'black'},
+        {name: 'spade', card:10, color:'black'},
+        {name: 'spade', card:'ace', color:'black'},
+        {name: 'spade', card:'jack', color:'black'},
+        {name: 'spade', card:'queen', color:'black'},
+        {name: 'spade', card:'king', color:'black'},
+
+        {name: 'diamond', card:6, color:'red'},
+        {name: 'diamond', card:7, color:'red'},
+        {name: 'diamond', card:8, color:'red'},
+        {name: 'diamond', card:9, color:'red'},
+        {name: 'diamond', card:10, color:'red'},
+        {name: 'diamond', card:'ace', color:'red'},
+        {name: 'diamond', card:'jack', color:'red'},
+        {name: 'diamond', card:'queen', color:'red'},
+        {name: 'diamond', card:'king', color:'red'},
+
+        {name: 'heart', card:6, color:'red'},
+        {name: 'heart', card:7, color:'red'},
+        {name: 'heart', card:8, color:'red'},
+        {name: 'heart', card:9, color:'red'},
+        {name: 'heart', card:10, color:'red'},
+        {name: 'heart', card:'ace', color:'red'},
+        {name: 'heart', card:'jack', color:'red'},
+        {name: 'heart', card:'queen', color:'red'},
+        {name: 'heart', card:'king', color:'red'},
+
+        {name: 'clubs', card:6, color:'black'},
+        {name: 'clubs', card:7, color:'black'},
+        {name: 'clubs', card:8, color:'black'},
+        {name: 'clubs', card:9, color:'black'},
+        {name: 'clubs', card:10, color:'black'},
+        {name: 'clubs', card:'ace', color:'black'},
+        {name: 'clubs', card:'jack', color:'black'},
+        {name: 'clubs', card:'queen', color:'black'},
+        {name: 'clubs', card:'king', color:'black'},
+    ]
+
+    let find = cards.find(value => value.name === "spade" && value.card === 'ace')
+    console.log(find)
+
+    let filter1 = cards.filter(value => value.card === 6)
+    console.log(filter1)
+
+    let filter2 = cards.filter(value => value.color === 'red')
+    console.log(filter2)
+
+    let filter3 = cards.filter(value => value.name === 'diamond')
+    console.log(filter3)
+
+    let filter4 = cards.filter(value => value.name === 'clubs').slice(4);
+    console.log(filter4)
+    // =========================
+    //
+    //     Взяти описану колоду карт, та за допомоги reduce упакувати всі карти по "мастях" в об'єкт
+    // {
+    //     spades:[],
+    //         diamonds:[],
+    //     hearts:[],
+    //     clubs:[]
+    // }
+    let reduce = cards.reduce((previousValue,masti) =>{
+        if (masti.name === 'spade'){
+            previousValue.spades.push(masti)
+        }
+        else if (masti.name === 'diamond'){
+            previousValue.diamonds.push(masti)
+        }
+        else if (masti.name === 'heart'){
+            previousValue.hearts.push(masti)
+        }
+        else{
+            previousValue.clubs.push(masti)
+        }
+        return previousValue
+    },{ spades:[],diamonds:[],hearts:[],clubs:[]})
+    console.log(reduce)
+    // =========================
+    //     взяти з arrays.js (який лежить в папці 2023 plan) масив coursesArray
+    // --написати пошук всіх об'єктів, в який в modules є sass
+    // --написати пошук всіх об'єктів, в який в modules є docker
+    let coursesArray = [
+        {
+            title: 'JavaScript Complex',
+            monthDuration: 5,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js']
+        },
+        {
+            title: 'Java Complex',
+            monthDuration: 6,
+            hourDuration: 909,
+            modules: ['html',
+                'css',
+                'js',
+                'mysql',
+                'mongodb',
+                'angular',
+                'aws',
+                'docker',
+                'git',
+                'java core',
+                'java advanced']
+        },
+        {
+            title: 'Python Complex',
+            monthDuration: 6,
+            hourDuration: 909,
+            modules: ['html',
+                'css',
+                'js',
+                'mysql',
+                'mongodb',
+                'angular',
+                'aws',
+                'docker',
+                'python core',
+                'python advanced']
+        },
+        {
+            title: 'QA Complex',
+            monthDuration: 4,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'git', 'QA/QC']
+        },
+        {
+            title: 'FullStack',
+            monthDuration: 7,
+            hourDuration: 909,
+            modules: ['html',
+                'css',
+                'js',
+                'mysql',
+                'mongodb',
+                'react',
+                'angular',
+                'aws',
+                'docker',
+                'git',
+                'node.js',
+                'python',
+                'java']
+        },
+        {
+            title: 'Frontend',
+            monthDuration: 4,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
+        }
+    ];
+    const Filtet =(arr) =>{
+        return arr.filter(value => value.modules.find(element => element === 'sass'))
+    }
+    console.log(Filtet(coursesArray))
+
+    const Filtet2 =(arr) =>{
+        return arr.filter(value => value.modules.find(element => element === 'docker'))
+    }
+    console.log(Filtet2(coursesArray));
+</script>
+</body>
+</html>
