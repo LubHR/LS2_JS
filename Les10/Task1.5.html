@@ -9,37 +9,37 @@
 </head>
 <body>
 
-<div id = 'divBaty'></div>
+<div id="divBaty">100</div>
 <script>
+    function saveTime() {
+        // Отримуємо дані з локального сховища або створюємо новий масив, якщо даних немає
+        let gettime = JSON.parse(localStorage.getItem('time')) || [];
+        let div = document.getElementById('divBaty');
+        let price = 100;
+        let arrtime = 0;
 
-
-    // *** (подібне було вище, але...будьте уважні в другій частині) створити сторінку з довільним блоком, в середині
-    // якого є значення "100грн"
-    // при перезавантаженні сторінки до значаення додається по 10грн, але !!!
-    // зміна ціни відбувається тільки на перезавантаження, які відбулись пізніше ніж 10 секунд після попереднього.
-    // При перезавантаженні, яке відбулось раніше ніж минуло 10 секунд - нічого не відбувається
-
-    function saveTime(){
-        let gettime = JSON.parse(localStorage.getItem('time')) || []
-
-        gettime.push({
-            price: 100,
-            time: new Date().getTime()
-        })
-        let arrtime = gettime[gettime.length-1]?.time
-        let now = new Date().getTime();
-        if (now - arrtime === 1000*10){
-            for (const i of gettime){
-                i.price += 10
-            }
+        if (gettime.length > 0) {
+            price = gettime[gettime.length - 1].price;
+            arrtime = gettime[gettime.length - 1].time;
         }
 
-        localStorage.setItem('time', JSON.stringify(gettime))
+        let now = new Date().getTime();
 
-
+        if (now - arrtime > 1000 * 10 || gettime.length === 0) {
+            price += 10;
+            gettime.push({
+                price: price,
+                time: now
+            });
+            div.textContent = price + ' грн';
+            console.log('Price updated:', price);
+            localStorage.setItem('time', JSON.stringify(gettime));
+        } else {
+            div.textContent = price + ' грн';
+        }
     }
 
-    saveTime()
+    saveTime();
 </script>
 </body>
 </html>
