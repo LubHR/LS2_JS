@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<form name = "form2">
+    <input type="number" id ="age1" placeholder="Enter your age">
+    <button id="send">Send</button>
+    <p id="message"></p>
+</form>
+
+<div id = "text"></div>
+<button id = 'button'>Send</button>
+<p id = 'p'></p>
+<script>
+
+    // - створити інпут який приймає вік людини та кнопку яка підтверджує дію.При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік чи меньше він ніж 18, та повідомити про це користувача
+
+    let age1 = document.getElementById('age1')
+    let button = document.getElementById('send')
+    let p = document.getElementById('message')
+
+    button.addEventListener('click', function (e){
+        e.preventDefault()
+        let age = parseInt(age1.value)
+
+        if (age<0){
+            p.innerText = 'Ви ввели неправильно дані'
+        }
+        else if (age<18){
+            p.innerText = 'Ви занадто малі ще'
+        }
+        else{
+            p.innerText = 'Можете проходити'
+        }
+    })
+
+    // - Створити довільний елемент з id = text та створити кнопку.Використовуючи JavaScript, зробіть так, щоб при натисканні на кнопку зникав елемент з id="text".
+    let div = document.getElementById('text')
+    let button1 = document.getElementById('button')
+    let p1 = document.getElementById('p')
+
+    button1.addEventListener('click',function (e){
+        e.preventDefault()
+
+        div.removeAttribute('id')
+        p1.innerText = 'id було видалено'
+
+    })
+
+</script>
+</body>
+</html>

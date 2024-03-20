@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .DivBaty{
+            display: flex;
+        }
+        .div1{
+             border: 1px solid black;
+             width: 25vw;
+        }
+        .div2{
+            border: 1px solid black;
+            width: 25vw;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+
+<h1>Створення таблички</h1>
+<hr>
+
+<form name="form1">
+    <input type="number" name="numberRydkiv" id="nRydka" placeholder="Кількість рядків">
+    <input type="number" name="numberYacheek"  id="nYacheka" placeholder="Кількість ячейок">
+    <input type="text" name="name" id="Text" placeholder="Текст в ячейці">
+    <button id="button">Створити</button>
+</form>
+
+<hr>
+
+<script>
+    // *** Створити 3 інпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
+    //     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
+    let button = document.getElementById('button')
+
+    button.addEventListener('click',function (e){
+        e.preventDefault();
+
+        let nRydok = document.getElementById('nRydka').value;
+        let nYacheyka = document.getElementById('nYacheka').value
+        let nText = document.getElementById('Text').value
+
+        let div = document.createElement('div')
+        document.body.append(div)
+        div.classList.add('DivBaty')
+
+        for (let i = 0; i < nRydok;i++){
+            let div1 = document.createElement('div')
+            div1.classList.add('div1')
+            for (let t = 0; t< nYacheyka;t++){
+                let div2 = document.createElement('div')
+                div2.classList.add('div2')
+                div2.innerText = nText
+                div1.append(div2)
+            }
+            div.append(div1)
+        }
+
+    })
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<button id = 'button1'>Prev</button>
+<button id = 'button2'>Next</button>
+<div id = 'div'></div>
+
+<script>
+
+    // =========================
+    //     зробити масив на 100 об'єктів та дві кнопки prev next
+    // при завантажені сторінки з'являються перші 10 об'єктів.
+    //     При натисканні next виводяться настпні 10 об'єктів
+    // При натисканні prev виводяться попередні 10 об'єктів
+    let button1 = document.getElementById('button1')
+    let button2 = document.getElementById('button2')
+    let div = document.getElementById('div')
+
+    let arr1 = []
+    for(let i = 0; i<100; i++){
+        arr1.push(i)
+    }
+
+    let value = 0;
+
+    function displayData() {
+        div.innerText = '' //для очистки минулих цфр,без цього при нажимання кнопки будуть накладатись цифри на цифри
+        for (let i = value; i < value + 10; i++) {
+            const p = document.createElement('p');
+            p.textContent = arr1[i];
+            div.appendChild(p);
+        }
+    }
+    displayData()
+
+    button1.addEventListener('click',function (){
+        if(value+10< arr1.length){
+            value -=10
+            displayData()
+        }
+    })
+
+    button2.addEventListener('click',function (){
+        if(value+10< arr1.length){
+            value +=10
+            displayData()
+        }
+    })
+
+
+
+
+</script>
+</body>
+</html>
