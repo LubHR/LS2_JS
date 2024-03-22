@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+        }
+        .divBaty {
+            margin: 10px;
+        }
+        .img{
+            width: 20vw;
+            height: 40vh;
+        }
+        .p {
+            margin: 0;
+            font-size: 3vw;}
+        .text{
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    // взяти https://dummyjson.com/docs/carts та вивести інформацію про всі корзини. Відобразити всі поля кожної корзини.
+    fetch('https://dummyjson.com/carts')
+        .then(res => res.json())
+        .then(carts => {
+            for (const cartvalue of carts.carts){
+                console.log(cartvalue)
+
+                let div = document.createElement('div')
+                document.body.appendChild(div)
+                div.classList.add('divBaty')
+                let text = document.createElement('h1')
+                text.innerText = `Cards ${cartvalue.id}`
+                text.classList.add('text')
+                div.append(text)
+
+                for (const value of cartvalue.products) {
+                    // console.log(value)
+                    let img = document.createElement('img')
+                    img.src = value.thumbnail
+                    img.classList.add('img')
+                    let p = document.createElement('p')
+                    p.classList.add('p')
+                    let h2 = document.createElement('h2')
+                    h2.innerText = `This ${value.title}`
+                    p.innerText = `Price - ${value.price}, Quantity - ${value.quantity}`
+                    let hr = document.createElement('hr')
+                    div.append(h2,img,p,hr)
+                }
+            }
+        })
+
+
+</script>
+</body>
+</html>
