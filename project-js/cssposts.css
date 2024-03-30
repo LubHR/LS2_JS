@@ -1,0 +1,16 @@
+/* post-details.html - блок з інфою про пост зверху. Коментарі - по 4 в ряд.*/
+/*Всі елементи котрі характеризують users, posts, comments візуалізувати, так,
+щоб було видно що це блоки (дати фон. марджини і тд)*/
+
+body{
+    margin: 0;
+    display: flex;
+    overflow-x: hidden;
+    background-image: url("png/background3.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    backdrop-filter: blur(5px);
+
+}

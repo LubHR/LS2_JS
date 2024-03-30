@@ -5,7 +5,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="cssuser.css">
+    <title>User</title>
 </head>
 <body>
 
@@ -30,18 +31,31 @@
             console.log(user)
 
             let divbaty = document.createElement('div');
+            divbaty.classList.add('Baty')
             document.body.appendChild(divbaty)
 
-            let h3 = document.createElement('h3')
-            h3.innerText = `Name - ${user.name} and ID:${user.id}`
+            let h21 = document.createElement('h2')
+            h21.innerText = `Name - ${user.name}`
+            h21.classList.add('h212')
 
+            let h22 = document.createElement('h2')
+            h22.innerText = `ID:${user.id}`
+            h22.classList.add('h212')
+
+            let divinformation = document.createElement('div')
+            divinformation.classList.add('divinformation')
             let p1 = document.createElement('p');
             p1.innerText = `Username: ${user.username}
             email: ${user.email}
             phone: ${user.phone}`
+            divinformation.append(p1)
 
+
+            let divAddress = document.createElement('div')
+            divAddress.classList.add('divAddress')
             let h3Address = document.createElement('h3')
             h3Address.innerText = 'Address'
+            h3Address.classList.add('h3h3Address')
             let p2ad = document.createElement('p')
             let address = user.address
             p2ad.innerText = `Street - ${address.street}
@@ -49,47 +63,69 @@
             City - ${address.city}
             Zipcode - ${address.zipcode}
             Geo - lat:"${address.geo.lat}" lng:"${address.geo.lng}"`
+            divAddress.append(h3Address,p2ad)
 
+            let divCompany = document.createElement('div')
+            divCompany.classList.add('divCompany')
+            let h3Compane = document.createElement('p')
+            h3Compane.classList.add('h3Compane')
             let p3comp = document.createElement('p')
             let company = user.company
-            p3comp.innerText = `Company - ${company.name}
-            Use - ${company.catchPhrase}
-            Product - ${company.bs}`
+            p3comp.innerText = `Company: ${company.name}
+            Use: ${company.catchPhrase}
+            Product: ${company.bs}`
+            divCompany.append(h3Compane,p3comp)
 
+
+            divbaty.append(h21,h22, divinformation, divAddress, divCompany)
+
+            let divButton = document.createElement('div')
+            document.body.appendChild(divButton)
+            divButton.classList.add('divButton')
             let button = document.createElement('button')
-            button.innerText = 'post of current user'
+            button.innerText = 'Post of current user'
 
+            divButton.appendChild(button)
 
-            divbaty.append(h3, p1, h3Address, p2ad, p3comp, button)
+            let divBaty2 = document.createElement('div')
+            divBaty2.classList.add('divBaty2')
+            document.body.appendChild(divBaty2)
+
 
             let urlpost = new URL(location.href).searchParams.get('id')
             let newurlpost = `https://jsonplaceholder.typicode.com/users/${urlpost}/posts`
 
+            let flag = false;
+
             button.addEventListener('click', () => {
-                let divbaty1 = document.createElement('div')
-                document.body.appendChild(divbaty1)
-                fetch(newurlpost)
-                    .then(value => value.json())
-                    .then(posts => {
-                        console.log(posts)
+                if (!flag) {
+                    fetch(newurlpost)
+                        .then(value => value.json())
+                        .then(posts => {
+                            console.log(posts)
 
-                        for (const post of posts) {
-                            console.log(post)
+                            for (const post of posts) {
+                                console.log(post)
 
-                            let pbaty1 = document.createElement('p')
-                            pbaty1.innerText = `Post: ${post.title}`
+                                let divPosts = document.createElement('div')
+                                divPosts.classList.add('divPosts')
+                                let pbaty1 = document.createElement('p')
+                                pbaty1.innerText = `Post: ${post.title}`
 
-                            let ainfo = document.createElement('a')
-                            ainfo.href = `post-details.html?id=${user.id}`
-                            ainfo.innerText = 'information of this post'
+                                let ainfo = document.createElement('a')
+                                ainfo.href = `post-details.html?id=${user.id}`
+                                ainfo.innerText = '\u27A1 Information of this post';
 
-                            ainfo.addEventListener("click", () => {
-                                location.href = "post-details?id=" + user.id
-                            })
-                            divbaty1.append(pbaty1, ainfo)
-                        }
-                    })
-            })
+                                ainfo.addEventListener("click", () => {
+                                    location.href = "post-details?id=" + user.id
+                                })
+                                divPosts.append(pbaty1, ainfo)
+                                divBaty2.appendChild(divPosts)
+                            }
+                        })
+                    flag = true;
+                }
+            });
 
 
         })

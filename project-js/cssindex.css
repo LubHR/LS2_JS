@@ -3,7 +3,6 @@
 
 body{
     margin: 0;
-    width: 100%;
     max-width: 100%;
     overflow-x: hidden;
     background-image: url("png/background.jpg");
@@ -11,6 +10,16 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+}
+
+.policeh1{
+    text-align: center;
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    color: rgb(204,26,26);
+
 }
 
 .divbaty{
@@ -21,7 +30,6 @@ body{
 
     width: 100vw;
     height: 250vh;
-
 }
 
 .divSon{
@@ -29,6 +37,7 @@ body{
     border: 2px solid cadetblue;
     border-radius: 4px;
     gap: 20px;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,6 +52,7 @@ h3{
     width: 12vw;
     word-break: normal;
     margin: 0;
+
     font-family: "Rubik", sans-serif;
     font-optical-sizing: auto;
     font-weight: 700;
