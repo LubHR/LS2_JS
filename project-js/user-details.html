@@ -113,11 +113,11 @@
                                 pbaty1.innerText = `Post: ${post.title}`
 
                                 let ainfo = document.createElement('a')
-                                ainfo.href = `post-details.html?id=${user.id}`
+                                ainfo.href = `post-details.html?id=${post.id}`
                                 ainfo.innerText = '\u27A1 Information of this post';
 
                                 ainfo.addEventListener("click", () => {
-                                    location.href = "post-details?id=" + user.id
+                                    location.href = "post-details?id=" + post.id
                                 })
                                 divPosts.append(pbaty1, ainfo)
                                 divBaty2.appendChild(divPosts)
