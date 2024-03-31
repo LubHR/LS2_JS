@@ -53,7 +53,10 @@
                         divcoments.classList.add('divcoments')
                         let pcoments = document.createElement('p');
                         pcoments.innerText = `Name ${coment.id}: ${coment.name}`
-                        divcoments.appendChild(pcoments)
+                        let img = document.createElement('img')
+                        img.src = 'png/coment.png'
+
+                        divcoments.append(pcoments,img)
                         divBaty2.appendChild(divcoments)
                     }
                 })
